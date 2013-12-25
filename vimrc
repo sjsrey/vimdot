@@ -32,4 +32,5 @@ let g:tex_flavor='latex'
 set tw=78
 set formatoptions+=t
 
-
+"abbreviations
+iabbrev pysal PySAL
