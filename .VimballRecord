@@ -1,0 +1,2 @@
+markdown-1.2.2.vba: call delete('/Users/serge/.vim/ftdetect/markdown.vim')|call delete('/Users/serge/.vim/snippets/markdown.snippets')|call delete('/Users/serge/.vim/syntax/markdown.vim')
+file_templates.vba: call delete('/Users/serge/.vim/plugin/file_templates.vim')|call delete('/Users/serge/.vim/templates/example.h')|call delete('/Users/serge/.vim/templates/example.c')

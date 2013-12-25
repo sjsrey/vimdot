@@ -1,0 +1,822 @@
+%* ===============================================================
+% <+#TITLE#+>
+% <+#SHORTTITLE#+>
+% <+#WHEN#+>
+% <+#WHERE#+>
+%  == Copyright Sergio J. Rey <+$YEAR$;R+++++++++++++++++++> ==
+%  =============================================================== */
+
+
+\documentclass{beamer}
+  %#comment out the Boadilla theme and uses only the header bar
+  \usetheme[]{Boadilla} 
+  %\usetheme[secheader]{Boadilla}
+
+    %#make sure to change this part, since it is predefined
+    %\defbeamertemplate*{footline}{infolines theme}
+    \setbeamertemplate{footline}
+      {
+    \leavevmode%
+    \hbox{%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+
+  %%turning the next line into a comment, erases the frame numbers
+      %\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \end{beamercolorbox}}%
+    \vskip0pt%
+  }
+
+\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% new content goes below here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{tikz}
+  \graphicspath{{figures/}}
+
+  \usepackage{tikz,overpic}
+  \usetikzlibrary{fit,shapes.misc}
+\author{Sergio Rey}
+\institute[ASU]{GeoDa Center for Geospatial Analysis and Computation\\School of Geographical Sciences and Urban Planning\\Arizona State University}
+\title[<+#SHORTTITLE#+>]{<+#TITLE#+>}
+\subtitle{}
+\date[<+#WHEN#+>]{<+#WHERE#+>}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Background} 
+\begin{frame}\frametitle{Motivation}
+  \pause
+  \begin{block}{Tobler's Law}
+    "Everything is related to everything else, but near things are more related than distant things."
+  \end{block}
+  \pause
+  \begin{block}{Spatial Autocorrelation}
+    Nonrandom attribute value similarity or dissimilarity in geographic space.
+  \end{block}
+\pause
+  \begin{block}{Goodchild 2002}
+    ``Hell is a place with no spatial dependence.''
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+       \begin{figure}
+       \scalebox{1.00}{
+       \includegraphics[width=1.0\linewidth]{sarcor} }
+        \end{figure}      
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+       \begin{figure}
+       \scalebox{1.00}{
+       \includegraphics[width=1.0\linewidth]{irregular} }
+        \end{figure}      
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Acknowledgments}
+\begin{itemize}
+  \item \textbf{NSF}  CyberGIS Software Integration for Sustained Geospatial Innovation
+  \item \textbf{NIJ}  Flexible Geospatial Visual Analytics and Simulation Technologies to Enhance Criminal Justice Decision Support Systems
+  \item \textbf{NIH} Geospatial Factors and Impacts: Measurement and Use 
+  \item \textbf{NSF} Spatial Analytical Framework for Examining Sex Offender
+    Residency Issues Over Space and Time
+  \item \textbf{NSF} An Exploratory Space-Time Data Analysis Toolkit for Spatial Social Science Research 
+  \item \textbf{NSF}  Hedonic Models of Location Decisions with Applications to Geospatial Microdata 
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Team}
+  \begin{center}
+ \begin{tabular}{ll}
+Serge Rey& Luc Anselin\\
+Charles Schmidt & Dave Folch\\
+Myunghwa Hwang& Dani Arribas\\
+Phil Stephens&Julia Koschinsky\\
+Pedro Amaral&Nick Malizia\\
+Xing Kang&Xun Li\\
+Xinyue Ye&Andrew Winslow\\
+Mark McCann& Ran Wei\\
+Nancy Lozano & Jing Yao\\
+\end{tabular}
+  \end{center}
+and contributions from many others!
+ 
+\end{frame}
+\subsection{Origins}
+\begin{frame}\frametitle{PySAL Objectives}
+  \begin{block}{Leverage Existing Tools Development}
+    \begin{itemize}
+      \item GeoDa/PySpace
+      \item STARS
+    \end{itemize}
+  \end{block}
+  \begin{block}{Develop Core Library}
+    \begin{itemize}
+      \item spatial data \emph{analytical} functions
+      \item enhanced specialization, modularity
+      \item fill void in geospatial Python libraries
+    \end{itemize}
+  \end{block}
+  \begin{block}{Flexible Delivery Mechanisms}
+    \begin{itemize}
+      \item interactive shell
+      \item GUI
+      \item Toolkits
+      \item webservices
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{Progress}
+
+\begin{frame}\frametitle{Since 2009: http://pysal.org}
+    \begin{center}
+         \begin{figure}
+           \scalebox{1.00}{
+           \includegraphics[width=1.0\linewidth]{progress09} }
+          \end{figure}      
+    \end{center}
+\end{frame}
+
+\section{Components}
+
+\subsection{Overview}
+
+%last time - weights overview and demo
+%last time - autocorrelation view
+
+\begin{frame}\frametitle{Components}
+\begin{center}
+     \begin{figure}
+     \scalebox{0.75}{
+     \includegraphics[width=1.0\linewidth]{pysalGraphic} }
+      \end{figure}      
+\end{center}
+  
+\end{frame}
+
+
+
+\subsection{Spatial Weights}
+
+\begin{frame}\frametitle{Spatial Weights}
+  \begin{columns}
+  \begin{column}[l]{5cm}
+    \begin{block}{Types}
+    \begin{itemize}
+      \item Contiguity
+      \item Distance Based
+      \item Kernel Weights
+      \item Regimes
+      \item Hybrid
+    \end{itemize}
+  \end{block}
+  \end{column}
+  \begin{column}[r]{5cm}
+    \begin{block}{Operations}
+    \begin{itemize}
+      \item Standardizations
+       \item Higher orders
+       \item Summary properties
+       \item Set operations
+       \item Conversions
+    \end{itemize}
+  \end{block}
+  \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Supported Weights Formats}
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+In [7]: pysal.open.check()
+PySAL File I/O understands the following file extensions:
+Ext: '.shp', Modes: ['r', 'wb', 'w', 'rb']
+Ext: '.mtx', Modes: ['r', 'w']
+Ext: '.swm', Modes: ['r', 'w']
+Ext: '.mat', Modes: ['r', 'w']
+Ext: '.shx', Modes: ['r', 'wb', 'w', 'rb']
+Ext: '.stata_text', Modes: ['r', 'w']
+Ext: '.geoda_txt', Modes: ['r']
+Ext: '.dbf', Modes: ['r', 'w']
+Ext: '.dat', Modes: ['r', 'w']
+Ext: '.gwt', Modes: ['r', 'w']
+Ext: '.gal', Modes: ['r', 'w']
+Ext: '.arcgis_text', Modes: ['r', 'w']
+Ext: '.wk1', Modes: ['r', 'w']
+Ext: '.arcgis_dbf', Modes: ['r', 'w']
+Ext: '.geobugs_text', Modes: ['r', 'w']
+Ext: '.csv', Modes: ['r']
+Ext: '.wkt', Modes: ['r']
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}\frametitle{Shapefiles}
+\begin{center}
+     \begin{figure}
+     \scalebox{0.95}{
+     \includegraphics[width=1.0\linewidth]{south_shapefile} }
+      \end{figure}      
+\end{center}
+  
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{W from Shapefiles}
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+>>> import pysal
+>>> w = pysal.rook_from_shapefile('south.shp')
+>>> w.n
+1412
+>>> w.s0
+7700.0
+>>> w.n**2
+1993744
+>>> w.pct_nonzero
+0.0038620805880795125
+>>> wq = pysal.queen_from_shapefile('south.shp')
+>>> wq.s0
+8096.0
+>>> w.histogram
+[(1, 16), (2, 32), (3, 65), (4, 187), (5, 378), (6, 435), (7, 230),
+(8, 56), (9, 11), (10, 2)]
+>>> wq.histogram
+[(1, 16), (2, 29), (3, 54), (4, 141), (5, 306), (6, 437), (7, 319),
+(8, 86), (9, 18), (10, 5), (11, 1)]
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+
+
+
+
+\subsection{Spatial Dynamics}
+\begin{frame}\frametitle{Space-Time EDA}
+  \begin{block}{Spatial pattern of dynamics}
+    \begin{itemize}
+      \item Temporal co-movements
+      \item Spatial clustering of dyads (and beyond)
+      \item Optimal currency areas
+       \item Convergence clubs, spatial poverty traps
+    \end{itemize}
+  \end{block}
+  \begin{block}{Temporal stability of spatial patterns}
+    \begin{itemize}
+      \item Choropleth map and raster comparisons
+      \item Emergent properties (ABM)
+      \item Hot and cold spot detection
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Spatial Markov }
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+>>> import pysal
+>>> f = pysal.open(pysal.examples.get_path("usjoin.csv"))
+>>> pci = np.array([f.by_col[str(y)] for y in range(1929,2010)])
+>>> pci = pci.transpose()
+>>> rpci = pci/(pci.mean(axis=0))
+>>> w = pysal.open(pysal.examples.get_path("states48.gal")).read()
+>>> w.transform = 'r'
+>>> sm = Spatial_Markov(rpci, w, fixed=True, k=5)
+>>> for p in sm.P:
+...     print p
+...     
+[[ 0.96341463  0.0304878   0.00609756  0.          0.        ]
+ [ 0.06040268  0.83221477  0.10738255  0.          0.        ]
+ [ 0.          0.14        0.74        0.12        0.        ]
+ [ 0.          0.03571429  0.32142857  0.57142857  0.07142857]
+ [ 0.          0.          0.          0.16666667  0.83333333]]
+[[ 0.79831933  0.16806723  0.03361345  0.          0.        ]
+ [ 0.0754717   0.88207547  0.04245283  0.          0.        ]
+ [ 0.00537634  0.06989247  0.8655914   0.05913978  0.        ]
+ [ 0.          0.          0.06372549  0.90196078  0.03431373]
+ [ 0.          0.          0.          0.19444444  0.80555556]]
+[[ 0.84693878  0.15306122  0.          0.          0.        ]
+ [ 0.08133971  0.78947368  0.1291866   0.          0.        ]
+ [ 0.00518135  0.0984456   0.79274611  0.0984456   0.00518135]
+ [ 0.          0.          0.09411765  0.87058824  0.03529412]
+ [ 0.          0.          0.          0.10204082  0.89795918]]
+[[ 0.8852459   0.09836066  0.          0.01639344  0.        ]
+ [ 0.03875969  0.81395349  0.13953488  0.          0.00775194]
+ [ 0.0049505   0.09405941  0.77722772  0.11881188  0.0049505 ]
+ [ 0.          0.02339181  0.12865497  0.75438596  0.09356725]
+ [ 0.          0.          0.          0.09661836  0.90338164]]
+[[ 0.33333333  0.66666667  0.          0.          0.        ]
+ [ 0.0483871   0.77419355  0.16129032  0.01612903  0.        ]
+ [ 0.01149425  0.16091954  0.74712644  0.08045977  0.        ]
+ [ 0.          0.01036269  0.06217617  0.89637306  0.03108808]
+ [ 0.          0.          0.          0.02352941  0.97647059]]
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Space-Time Rank Concordance}
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+>>> import pysal
+>>> f=pysal.open(pysal.examples.get_path("mexico.csv"))
+>>> vnames=["pcgdp%d"%dec for dec in range(1940,2010,10)]
+>>> y=np.transpose(np.array([f.by_col[v] for v in vnames]))
+>>> regime=np.array(f.by_col['esquivel99'])
+>>> w=pysal.weights.regime_weights(regime)
+>>> np.random.seed(12345)
+>>> res=[pysal.SpatialTau(y[:,i],y[:,i+1],w,99) for i in range(6)]
+>>> for r in res:
+...     ev = r.taus.mean()
+...     "%8.3f %8.3f %8.3f"%(r.tau_spatial, ev, r.tau_spatial_psim)
+...     
+'   0.281    0.466    0.010'
+'   0.348    0.499    0.010'
+'   0.460    0.546    0.020'
+'   0.505    0.532    0.210'
+'   0.483    0.499    0.270'
+'   0.572    0.579    0.280'
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Side note: PySAL v. Scipy Kendall's Tau}
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+# pvs.py
+import pysal
+import numpy as np
+from scipy.stats import kendalltau
+import time
+ns = [25000, 50000, 100000, 200000]
+for n in ns:
+    x = np.arange(n); y = np.arange(n)
+    y[40:50] = 20
+    y = np.random.permutation(y)
+    t1 = time.time(); res_p = pysal.Tau(x,y); t2 = time.time()
+    res_s = kendalltau(x,y); t3 = time.time()
+    print  'n=%d scipy/pysal: %8.3f'%(n, (t3-t2)/(t2-t1))
+
+>>> run pvs.py
+n=25000 scipy/pysal:    3.691
+n=50000 scipy/pysal:    4.030
+n=100000 scipy/pysal:    3.921
+n=200000 scipy/pysal:    3.891
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+\begin{frame}\frametitle{Moran Scatter}
+
+\begin{center}
+     \begin{figure}
+     \scalebox{0.75}{
+     \includegraphics[width=1.0\linewidth]{moranscatter1} }
+      \end{figure}      
+\end{center}
+  
+\end{frame}
+
+
+\begin{frame}\frametitle{Global and Local Autocorrelation}
+  \begin{columns}
+  \begin{column}[l]{3cm}
+ 
+\begin{center}
+     \begin{figure}
+     \scalebox{1.00}{
+     \includegraphics[width=1.0\linewidth]{moranscatter1} }
+      \end{figure}      
+\end{center}
+ 
+  \end{column}
+  \begin{column}[r]{7cm}
+    Global Autocorrelation
+    \begin{equation}
+    I_t =  (n/S_0) \frac{\sum_i \sum_j z_{i,t} w_{i,j} z_{j,t}}{\sum_i
+    z_{i,t}^2}
+    \end{equation}
+
+    Local Autocorrelation
+    \begin{equation}
+    I_{i,t} =  (z_{i,t}/m_2) \sum_j w_{i,j} z_{j,t}
+  \end{equation}
+
+  $m_2 = \sum_i z_{i,t}^2 / n$
+  \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{LISA Markov}
+  \begin{columns}
+  \begin{column}[l]{6cm}
+ 
+\begin{center}
+     \begin{figure}
+     \scalebox{1.00}{
+     \includegraphics[width=1.0\linewidth]{moranscatter1} }
+      \end{figure}      
+\end{center}
+ 
+  \end{column}
+  \begin{column}[r]{6cm}
+ \begin{figure}
+     \scalebox{1.00}{
+     \includegraphics[width=1.0\linewidth]{moranscatter2} }
+      \end{figure}      
+
+  \end{column}
+  \end{columns}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{LISA Markov}
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+>>> import numpy as np
+>>> f = pysal.open(pysal.examples.get_path("usjoin.csv"))
+>>> pci = np.array([f.by_col[str(y)] for y in range(1929,2010)]).transpose()
+>>> w = pysal.open(pysal.examples.get_path("states48.gal")).read()
+>>> lm = LISA_Markov(pci,w)
+>>> lm.classes
+array([1, 2, 3, 4])
+>>> lm.steady_state
+matrix([[ 0.28561505],
+        [ 0.14190226],
+        [ 0.40493672],
+        [ 0.16754598]])
+>>> lm.p
+matrix([[ 0.92985458,  0.03763901,  0.00342173,  0.02908469],
+        [ 0.07481752,  0.85766423,  0.06569343,  0.00182482],
+        [ 0.00333333,  0.02266667,  0.948     ,  0.026     ],
+        [ 0.04815409,  0.00160514,  0.06420546,  0.88603531]])
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{LISA Markov - Spillover and Components}
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+>>> lm_random = pysal.LISA_Markov(pci, w, permutations=99)
+>>> r = lm_random.spillover()
+>>> r['components'][:,12]
+array([ 0.,  1.,  0.,  1.,  0.,  2.,  2.,  0.,  0.,  0.,  0.,  0.,  0.,
+        0.,  0.,  0.,  0.,  2.,  2.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,
+        2.,  2.,  0.,  2.,  0.,  0.,  0.,  0.,  1.,  2.,  2.,  0.,  0.,
+        0.,  0.,  0.,  2.,  0.,  0.,  0.,  0.,  0.])
+>>> r['components'][:,13]
+array([ 0.,  2.,  0.,  2.,  0.,  1.,  1.,  0.,  0.,  2.,  0.,  0.,  0.,
+        0.,  0.,  0.,  0.,  1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  2.,
+        0.,  1.,  0.,  1.,  0.,  0.,  0.,  0.,  2.,  1.,  1.,  0.,  0.,
+        0.,  0.,  2.,  1.,  0.,  2.,  0.,  0.,  0.])
+>>> r['spill_over'][:,12]
+array([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,
+        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,
+        0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,
+        0.,  0.,  1.,  0.,  0.,  1.,  0.,  0.,  0.])
+
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{CAST: Crime Analytics for Space-Time}
+  \begin{block}{NIJ Project}
+    \begin{itemize}
+      \item Under development
+      \item Stand-alone program based on PySAL's spatial dynamics module
+      \item WxPython front-end
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}\frametitle{Linked Maps}
+  
+\begin{center}
+     \begin{figure}
+     \scalebox{0.75}{
+     \includegraphics[width=1.0\linewidth]{linked_maps} }
+      \end{figure}      
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Linked Views}
+  
+\begin{center}
+     \begin{figure}
+     \scalebox{0.75}{
+     \includegraphics[width=1.0\linewidth]{linked_views} }
+      \end{figure}      
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{LISA Markov Plots}
+  
+\begin{center}
+     \begin{figure}
+     \scalebox{0.75}{
+     \includegraphics[width=1.0\linewidth]{lisa_markov_plots} }
+      \end{figure}      
+\end{center}
+\end{frame}
+
+
+\subsection{Spatial  Econometrics}
+
+\begin{frame}\frametitle{Spatial Econometrics}
+  \begin{itemize}
+    \item Still Rare in Commercial Econometrics Packages
+      \begin{itemize}
+        \item exception: Stata (ado files)
+      \end{itemize}
+    \item Many Specialized Scripts
+    \begin{itemize}
+        \item SAS, SPSS, Xlispstat, RATS, etc
+    \end{itemize}
+    \item Several Open Toolboxes
+      \begin{itemize}
+        \item spdep R, LeSage-Pace-Elhorst Matlab
+      \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}\frametitle{PySAL: spreg}
+  \begin{block}{Goals}
+    \begin{itemize}
+      \item Handle large problems
+      \item Efficient spatial weights
+      \item Modularity and reusability 
+       \item Model complexity
+    \end{itemize}
+  \end{block}
+\end{frame}
+\begin{frame}\frametitle{Spatial Lag Model}
+  \begin{block}{Specification}
+\begin{equation}
+\mathbf{y} = \rho \mathbf{W} \mathbf{y} + \mathbf{X} \beta + \mathbf{u},
+\end{equation}
+with $\mathbf{u} \sim N(0, \mathbf{\Sigma}_{\theta})$.
+  \end{block}
+  \begin{block}{Log Likelihood}
+\begin{eqnarray}\label{eq:spatiallagloglik}
+L &= &-(n/2)(\ln 2\pi) - (1/2) \ln | \mathbf{\Sigma}_{\theta} | + \ln | \mathbf{I} - \rho \mathbf{W} | \nonumber \\
+     & &- (1/2)(y - \rho \mathbf{W y} - \mathbf{X} \beta)' \mathbf{\Sigma}_{\theta}^{-1}(\mathbf{y} - \rho \mathbf{W y} - \mathbf{X} \beta).
+\end{eqnarray}
+   \end{block}
+   \begin{block}{Prediction}
+\begin{equation}\label{eq:lagpredicted}
+\hat{\mathbf{y}} = ( \mathbf{I} - \hat{\rho} \mathbf{W} )^{-1} \mathbf{X} \hat{\beta}.
+\end{equation}
+    \end{block}
+\end{frame}
+\begin{frame}\frametitle{spreg}
+  \begin{block}{Functionality}
+    \begin{itemize}
+      \item OLS, Two Stage Least Squares
+      \item Spatial Two Stage Least Squares
+      \item GM Error (Kelejian and Prucha 98-99)
+      \item GM Error Homoskedasticity (Drukker et al. 2010)
+      \item GM Error Heteroskedasticity (Arraiz et al. 2010)
+      \item Spatial HAC variance-covaraiance estimation
+      \item Anselin-Kelejian tests for residual spatial autocorrelation from
+        IV regression
+      \item LM diagnostics spatial error and spatial lag
+      \item Robust-LM diagnostics spatial error and spatial lag
+      \item Probit
+      \item Probit with spatial diagnostics
+    \end{itemize}
+  
+  \end{block}
+\end{frame}
+
+%\begin{frame}\frametitle{GeoDaSpace}
+%
+%\begin{center}
+%     \begin{figure}
+%     \scalebox{0.65}{
+%     \includegraphics[width=\linewidth]{space1.png} }
+%     \caption{}
+%      \end{figure}      
+%\end{center}
+%  
+%\end{frame}
+%
+%\begin{frame}\frametitle{DBF reader}
+%
+%\begin{center}
+%     \begin{figure}
+%     \scalebox{0.65}{
+%     \includegraphics[width=\linewidth]{space2.png} }
+%     \caption{}
+%      \end{figure}      
+%\end{center}
+%  
+%\end{frame}
+%
+%
+%\begin{frame}\frametitle{GAL reader}
+%
+%\begin{center}
+%     \begin{figure}
+%     \scalebox{0.65}{
+%     \includegraphics[width=\linewidth]{space3.png} }
+%     \caption{}
+%      \end{figure}      
+%\end{center}
+%  
+%\end{frame}
+%
+%  
+%\begin{frame}\frametitle{Variable Selection}
+%
+%\begin{center}
+%     \begin{figure}
+%     \scalebox{0.65}{
+%     \includegraphics[width=\linewidth]{space4.png} }
+%      \end{figure}      
+%\end{center}
+%   
+%\end{frame}
+
+\begin{frame}\frametitle{OLS with Diagnostics}
+
+\begin{center}
+     \begin{figure}
+     \scalebox{0.65}{
+     \includegraphics[width=\linewidth]{space5.png} }
+      \end{figure}      
+\end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Output}
+
+\begin{center}
+     \begin{figure}
+     \scalebox{0.85}{
+     \includegraphics[width=\linewidth]{spaceR.png} }
+      \end{figure}      
+\end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Estimation: Spatial Lag Model}
+
+\begin{center}
+     \begin{figure}
+     \scalebox{0.65}{
+     \includegraphics[width=\linewidth]{space_lag.png} }
+      \end{figure}      
+\end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Estimation: Spatial Lag Model}
+
+\begin{center}
+     \begin{figure}
+     \scalebox{0.85}{
+     \includegraphics[width=\linewidth]{spatial_lag_results} }
+      \end{figure}      
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{spreg}
+  \begin{footnotesize}
+  \begin{Verbatim}[numbers=left]
+>>> from pysal.spreg import GM_Error_Het
+>>> db = pysal.open('south.dbf', 'r')
+>>> y = np.array(db.by_col('HR90'))
+>>> y.shape = (len(y),1)
+>>> X = []
+>>> rhs = "RD90", "PS90", "DV90", "MA90", "UE90"
+>>> tmp = [X.append(db.by_col(col)) for col in rhs]
+>>> X = np.array(X).T
+>>> w = pysal.queen_from_shapefile('south.shp')
+>>> w.transform = 'r'
+>>> reg = GM_Error_Het(y, X, w)
+>>> reg.betas
+array([[ 6.74524073],
+       [ 4.41126522],
+       [ 1.78024214],
+       [ 0.48884888],
+       [-0.01499858],
+       [-0.39338759],
+       [ 0.3132412 ]])
+\end{Verbatim} 
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  
+\begin{center}
+     \begin{figure}
+     \scalebox{0.95}{
+     \includegraphics[width=1.0\linewidth]{spreg_diag} }
+      \end{figure}      
+\end{center}
+\end{frame}
+
+\begin{frame}
+  
+\begin{center}
+     \begin{figure}
+     \scalebox{0.95}{
+     \includegraphics[width=1.0\linewidth]{spreg_est} }
+      \end{figure}      
+\end{center}
+\end{frame}
+
+
+
+\section{Future}
+\subsection{Toolkits}
+
+\begin{frame}\frametitle{ArcGIS Toolkit}
+\begin{center}
+     \begin{figure}
+     \scalebox{0.95}{
+     \includegraphics[width=1.0\linewidth]{10_arctool} }
+      \end{figure}      
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{QGIS Toolkit}
+\begin{center}
+     \begin{figure}
+     \scalebox{0.95}{
+     \includegraphics[width=1.0\linewidth]{qgis_pysal} }
+      \end{figure}      
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{For More Information}
+
+  http://www.giscience.org/workshops.html
+  
+  http://pysal.org
+
+  http://geodacenter.asu.edu
+
+  email: srey@asu.edu
+  
+\end{frame}
+
+
+\end{document}

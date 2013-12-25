@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+  <title>TVO: The Vim Outliner</title>
+  <link type="text/css" rel="stylesheet" href="tvo.css" /></head>
+ <body>
+  <h1 class="h1">TVO: The Vim Outliner</h1>
+  <div class="t0p">
+   <p class="t0p">$Id: README.otl 103 2005-01-17 17:23:19Z ned $
+   Note: Things that aren't done yet are marked as <span class="otlTodo">TODO</span>.</p></div>
+  <h2 class="h2">Background</h2>
+  <div class="t1p">
+   <p class="t1p">I've used outliners for years to brainstorm and edit text. With
+   the prospect of doing more writing, I've wanted to have an
+   outliner that matched my editing style and wasn't too mouse-heavy.
+   Since I'm a Vim user, and since Vim 6.0 added folding, it seemed
+   natural to make an outliner out of it.  The name "TVO: The Vim
+   Outliner" was suggested by Ben Peterson.</p></div>
+  <h2 class="h2">Vim and folding</h2>
+  <div class="t1p">
+   <p class="t1p">The Vim editor has had folding added to it for version 6.0.</p>
+   <p class="t1p">TVO uses Vim's folding capabilities to provide an outlining
+   capability similar to that of familiar outliners:</p></div>
+  <ul class="t1pa">
+   <li class="t1pa">folded headlines hide all sub-headlines</li>
+   <li class="t1pa">text blocks fold separately so you can see the first line under
+   its corresponding headline.</li></ul>
+  <div class="t1p">
+   <p class="t1p">One of the things that TVO provides is a way to selectively hide
+   all but the first line in a group of lines.</p>
+   <p class="t1p">Another is changing the folding behavior of Vim to do the expected
+   outline nexting.</p>
+   <p class="t1p">By itself, Vim doesn't work quite right as an outliner. So I added
+   a foldexpr() routine to make folding work right. This defines text
+   blocks as level 10, and headlines from level 1 to 9 depending on
+   how many tabs (0 to 8) precede them.</p></div>
+  <h2 class="h2">About macros</h2>
+  <div class="t1p">
+   <p class="t1p">TVO can supply a number of keystroke macros. By default, these are
+   two-character sequences that start with a backslash (\) character.
+   However, the first character can be changed using the
+   'maplocalleader' setting (see below).</p>
+   <p class="t1p">In this document, wherever a macro is mentioned, it is shown with
+   a backslash. If you've changed the 'maplocalleader' setting, make
+   the required adjustment in your head.</p>
+   <p class="t1p">For instance, the sequence to show all text is shown as \a here.
+   If you've changed the 'maplocalleader' setting to ',' (as I do),
+   then you'd actually type ,a for this operation.</p></div>
+  <h2 class="h2">Syntax highlighting</h2>
+  <div class="t1p">
+   <p class="t1p">TVO uses Vim's syntax highlighting to color headlines.  The colors
+   are fixed, though you can edit the syntax/otl.vim file to change
+   them.</p>
+   <p class="t1p">You can toggle between having bold (colored) headers and non-bold
+   headers using the &lt;LocalLeader&gt;h (by default, '\h') command.</p></div>
+  <h2 class="h2">Hyperlink navigation using Vim tags</h2>
+  <div class="t1p">
+   <p class="t1p">TVO provides hyperlinking between files using a "tags" file.
+   When you jump to a tag, the tag is looked up in a tags file, and
+   that file tells Vim where to jump to.</p>
+   <p class="t1p">If you install the Viki script
+   (http://www.vim.org/scripts/script.php?script_id=861) you will
+   have live links to URLs as well as the ability to define links
+   between TVO files just by using a WikiName (capitalized word with
+   internal caps) and navigating using a &lt;C-]&gt; or
+   &lt;LocalLeader&gt;&lt;C-CR&gt; keystroke combination. If the file named by
+   the link does not exist, you will be prompted whether you want to
+   create that file.</p></div>
+  <h3 class="h3">Vim tag navigation</h3>
+  <div class="t2p">
+   <p class="t2p">TVO provides four kinds of tags:</p></div>
+  <ul class="t2pa">
+   <li class="t2pa">Regular vim tags (that use an index file)</li>
+   <li class="t2pa">Tags recognized by Viki (if you have it installed)</li>
+   <li class="t2pa">File tags that refer directly to another file</li>
+   <li class="t2pa">Vim command tags that can execute a Vim command directly
+   (the tags below that start with "[:he" are an example of
+   these)</li></ul>
+  <div class="t2p">
+   <p class="t2p">Either double click inside the square brackets below, or put
+   your cursor between the square brackets below and hit ctrl-]
+   to learn more about Vim's tag navigation features.</p>
+   <p class="t2p"><span class="otlVimTagRef">[:he tags]</span></p>
+   <p class="t2p">If you jump to a regular tag (as opposed to a file or to a Vim
+   command reference) you can jump back using ctrl-T <span class="otlVimTagRef">[:he
+   ctrl-T]</span>. If you jumped to a file, you can jump back using :e #
+   or ctrl-^ <span class="otlVimTagRef">[:he ctrl-^]</span>.</p>
+   <p class="t2p"><span class="otlTodo">TODO</span> ctrl-T will later jump back from other files as well.</p></div>
+  <h3 class="h3">Jumping to tags</h3>
+  <div class="t2p">
+   <p class="t2p">You can jump from one outline to a specified point in the same
+   or another outline by using the ctrl-] key, or by the "Jump to
+   this tag" menu choice in the Tools menu, or by typing the "g"
+   key and then clicking with the left mouse button.</p>
+   <p class="t2p">You can jump back from the tag using the ctrl-T key, or by
+   using Control-&lt;RightMouse&gt;, or by using g&lt;RightMouse&gt;</p>
+   <p class="t2p">You can insert tag references in your text by using square
+   brackets, like this:</p>
+   <p class="t2p"><a class="otlTagRef" href="#this%20is%20a%20tag">this is a tag</a></p>
+   <p class="t2p">Note that you can have spaces in the tag reference.</p></div>
+  <h3 class="h3">Jumping to files</h3>
+  <div class="t2p">
+   <p class="t2p">If you enclose the name of a file within square brackets, and
+   there is no tag by that name, then TVO will jump to the
+   first line of that file instead.</p></div>
+  <h3 class="h3">Jumping to arbitrary Vim commands</h3>
+  <div class="t2p">
+   <p class="t2p">You can make a tag that will execute a Vim command by
+   prefixing it with a ':' sign:</p>
+   <p class="t2p"><span class="otlVimTagRef">[:set]</span></p></div>
+  <h3 class="h3">Jumping to anchors within another file (using Viki)</h3>
+  <div class="t2p">
+   <p class="t2p">If you have Viki installed, you can use its ability to define
+   anchors
+   Your link will look like</p>
+   <p class="t2p">VikiName
+   VikiName#anchor
+   <a class="otlTagRef" href="#file%20name">file name</a>
+   [<a class="otlExternTagRef" href="README.otl#anchor">README.otl#anchor</a><a class="otlTagRef" href="#name">name</a>]</p></div>
+  <h3 class="h3">Specifying a different tags file</h3>
+  <div class="t2p">
+   <p class="t2p">The default tags file is "tags" in the current directory. If
+   you want outlines in different directories to share tags
+   files, you can change the Vim tags option in one of several
+   ways:</p></div>
+  <ul class="t2pa">
+   <li class="t2pa">Use a modeline to set the tags option <span class="otlVimTagRef">[:he tags-option]</span>:
+   | vim: tags=../tags</li>
+   <li class="t2pa">Set up a .vimrc <span class="otlVimTagRef">[:he .vimrc]</span> (and set the exrc option
+   <span class="otlVimTagRef">[:he 'exrc']</span>) </li>
+   <li class="t2pa">Set it in your own .vimrc</li></ul>
+  <hr class="h1" />
+  <h1 class="h1">Deplate support</h1>
+  <hr class="h1" />
+  <h1 class="h1">Upgrading</h1></body></html>

@@ -1,0 +1,14 @@
+<++>
+\begin{frame}
+\frametitle{<+frametitle+>}
+\begin{block}{<+blocktitle+>}
+\begin{itemize}
+\item <+item 1+>
+\item <+item 2+>
+\item <+item 3+>
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+

@@ -1,0 +1,43 @@
+%\usetheme{Boadilla}
+%#comment out the Boadilla theme and uses only the header bar
+%\usetheme[]{Boadilla} 
+\usetheme[secheader]{Boadilla}
+
+%#make sure to change this part, since it is predefined
+%\defbeamertemplate*{footline}{infolines theme}
+\setbeamertemplate{footline}
+{
+\leavevmode%
+\hbox{%
+\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+\usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+\usebeamerfont{title in head/foot}\insertshorttitle
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+
+%#turning the next line into a comment, erases the frame numbers
+%\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+
+\end{beamercolorbox}}%
+\vskip0pt%
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{tikz}
+
+\usetikzlibrary{arrows,calc,decorations.pathreplacing}
+\tikzset{
+%Define standard arrow tip
+>=stealth',
+%Define style for different line styles
+help lines/.style={dashed, thick},
+axis/.style={<->},
+important line/.style={thick},
+connection/.style={thick, dotted},
+}
+\graphicspath{{../../figures/}}
+

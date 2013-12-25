@@ -1,0 +1,10 @@
+<++>
+\begin{frame} \frametitle{<++>}
+\begin{columns}[c]
+\column{1.5in}
+<++>
+\column{1.5in}
+\framebox{\includegraphics[width=1.5in]{<+filename+>}}
+\end{columns}
+\end{frame}
+
