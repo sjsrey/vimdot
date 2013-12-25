@@ -21,4 +21,7 @@ imap jj <Esc>
 
 let g:tex_flavor='latex'
 
+set tw=78
+set formatoptions+=t
+
 
