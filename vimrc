@@ -11,6 +11,13 @@ set exrc
 "set cuc
 syn on
 set dir=~/tmp
+
+" pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+
+" other
 filetype plugin on
 set vb
 
