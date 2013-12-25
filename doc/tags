@@ -48,10 +48,15 @@ Alt-C	latex-suite.txt	/*Alt-C*
 Alt-I	latex-suite.txt	/*Alt-I*
 Alt-L	latex-suite.txt	/*Alt-L*
 BibTeX	latexhelp.txt	/*BibTeX*
+CHANGE_LOG	vimpress.txt	/*CHANGE_LOG*
+COMMANDS	vimpress.txt	/*COMMANDS*
+CONFIGURE	vimpress.txt	/*CONFIGURE*
+EXAMPLES	vimpress.txt	/*EXAMPLES*
 ExtractSnips()	snipMate.txt	/*ExtractSnips()*
 ExtractSnipsFile()	snipMate.txt	/*ExtractSnipsFile()*
 Filename()	snipMate.txt	/*Filename()*
 IMAP_PutTextWithMovement	latex-suite.txt	/*IMAP_PutTextWithMovement*
+INSTALL	vimpress.txt	/*INSTALL*
 Imap_DeleteEmptyPlaceHolders	latex-suite.txt	/*Imap_DeleteEmptyPlaceHolders*
 Imap_FreezeImap	latex-suite.txt	/*Imap_FreezeImap*
 Imap_PlaceHolderEnd	latex-suite.txt	/*Imap_PlaceHolderEnd*
@@ -70,6 +75,7 @@ Plug_Tex_MathCal	latex-suite.txt	/*Plug_Tex_MathCal*
 ResetSnippets()	snipMate.txt	/*ResetSnippets()*
 Roman	latexhelp.txt	/*Roman*
 TClearCiteHist	latex-suite.txt	/*TClearCiteHist*
+TIPS	vimpress.txt	/*TIPS*
 TLook	latex-suite.txt	/*TLook*
 TLookAll	latex-suite.txt	/*TLookAll*
 TLookBib	latex-suite.txt	/*TLookBib*
@@ -1076,4 +1082,5 @@ twocolumn	latexhelp.txt	/*twocolumn*
 twoside	latexhelp.txt	/*twoside*
 verbatim	latexhelp.txt	/*verbatim*
 verse	latexhelp.txt	/*verse*
+vimpress.txt	vimpress.txt	/*vimpress.txt*
 why-IMAP	latex-suite.txt	/*why-IMAP*

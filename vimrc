@@ -13,8 +13,9 @@ syn on
 set dir=~/tmp
 
 " pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+execute pathogen#infect()
 
 
 " other
