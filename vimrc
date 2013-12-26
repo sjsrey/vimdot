@@ -40,3 +40,8 @@ setlocal spell spelllang=en_us
 set spell
 syntax on
 syntax spell toplevel
+
+"tab
+set smartindent
+set tabstop=4
+set shiftwidth=4
