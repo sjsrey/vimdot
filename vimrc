@@ -9,8 +9,8 @@ set autoindent
 set ruler
 set exrc
 "set cuc
-syn on
 set dir=~/tmp
+"syntax enable
 
 " pathogen
 "call pathogen#runtime_append_all_bundles()
@@ -28,9 +28,15 @@ imap jj <Esc>
 
 
 let g:tex_flavor='latex'
+let g:tex_comment_nospell=0
 
 set tw=78
 set formatoptions+=t
 
 "abbreviations
 iabbrev pysal PySAL
+
+setlocal spell spelllang=en_us
+set spell
+syntax on
+syntax spell toplevel
