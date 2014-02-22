@@ -34,7 +34,7 @@ set tw=78
 set formatoptions+=t
 
 "abbreviations
-iabbrev pysal PySAL
+"iabbrev pysal PySAL
 
 setlocal spell spelllang=en_us
 set spell
