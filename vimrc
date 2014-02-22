@@ -45,3 +45,6 @@ syntax spell toplevel
 set smartindent
 set tabstop=4
 set shiftwidth=4
+
+
+set scrolloff=2
