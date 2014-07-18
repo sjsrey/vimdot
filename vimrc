@@ -23,8 +23,15 @@ filetype plugin on
 set vb
 
 "Mappings
-imap ;; <Esc>
+imap ;; :
 imap jj <Esc>
+imap ;w <Esc>:w
+imap ;q <Esc>:wq
+imap ;ps PySAL
+
+
+
+
 
 
 let g:tex_flavor='latex'
@@ -34,7 +41,7 @@ set tw=78
 set formatoptions+=t
 
 "abbreviations
-iabbrev pysal PySAL
+"iabbrev pysal PySAL
 
 setlocal spell spelllang=en_us
 set spell
