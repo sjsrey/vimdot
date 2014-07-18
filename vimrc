@@ -1,5 +1,6 @@
 " Configuration file for vim
 
+
 " Normally we use vim-extensions. If you want true vi-compatibility
 " remove change the following statements
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
@@ -52,3 +53,6 @@ syntax spell toplevel
 set smartindent
 set tabstop=4
 set shiftwidth=4
+
+
+set scrolloff=2
