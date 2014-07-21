@@ -57,3 +57,6 @@ set scrolloff=2
 
 "color
 set background=dark
+
+"number
+set number
