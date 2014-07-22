@@ -60,3 +60,4 @@ set background=dark
 
 "number
 set number
+
