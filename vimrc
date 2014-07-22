@@ -18,6 +18,8 @@ set dir=~/tmp
 "call pathogen#helptags()
 execute pathogen#infect()
 
+"paste for the terminal
+set pastetoggle=<F2>
 
 " other
 filetype plugin on
@@ -29,9 +31,7 @@ imap jj <Esc>
 imap ;w <Esc>:w
 imap ;q <Esc>:wq
 imap ;ps PySAL
-
-
-
+imap ;v :tabe ~/.vimrc
 
 
 
@@ -53,7 +53,13 @@ syntax spell toplevel
 set smartindent
 set tabstop=4
 set shiftwidth=4
+set scrolloff=2
 
+"color
+set background=dark
+
+"number
+set number
 
 set scrolloff=2
 
