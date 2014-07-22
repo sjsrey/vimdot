@@ -56,3 +56,5 @@ set shiftwidth=4
 
 
 set scrolloff=2
+
+set background=dark
