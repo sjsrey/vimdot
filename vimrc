@@ -13,10 +13,6 @@ set exrc
 set dir=~/tmp
 "syntax enable
 
-" pathogen
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-execute pathogen#infect()
 
 "paste for the terminal
 set pastetoggle=<F2>
@@ -56,4 +52,16 @@ set shiftwidth=4
 set scrolloff=2
 
 "color
+set background=dark
+
+"number
+set number
+
+"pathogen
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+set scrolloff=2
+
 set background=dark
