@@ -46,9 +46,9 @@ syntax on
 syntax spell toplevel
 
 "tab
-set smartindent
-set tabstop=4
-set shiftwidth=4
+"set smartindent
+"set tabstop=4
+"set shiftwidth=4
 set scrolloff=2
 
 "color

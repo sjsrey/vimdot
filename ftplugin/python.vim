@@ -1,13 +1,5 @@
 inoremap # X<BS>#
 set cinwords=if,else,while,do,for,def,class,elif,try,except,\
-
-set number
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set softtabstop=4
-set si
-set ai
 set foldmethod=indent
 "set foldopen=all
 "set foldclose=all
@@ -29,16 +21,16 @@ imap ;mt if __name__ == '__main__':main()
 imap ;ife if :else:3ki
 
 "move down 
-imap ê ji
+imap Ãª ji
 
 "move up
-imap ë ki
+imap Ã« ki
 
 "move word right
-imap ÷ wi
+imap Ã· wi
 
 "move word left
-imap â bi
+imap Ã¢ bi
 
 
 "execute buffer
@@ -381,12 +373,7 @@ set sessionoptions=buffers,winsize,options,help,blank,resize
 
 map ;soff <Esc>:setlocal nospell<CR>
 map ;son <Esc>:setlocal spell spelllang=en_us<CR>
-"signatures
-"iab ;irsr Sergio Rey, EditorInternational Regional Science Review
-iab _irsr --Sergio Rey, EditorInternational Regional Science Reviewhttp://irx.sagepub.com/
-iab _chair --Sergio (Serge) ReyProfessor and ChairDepartment of GeographySan Diego State Universityhttp://geography.sdsu.edu/People/Faculty/rey.html
 
-iab .s --Sergio (Serge) ReyProfessor and ChairDepartment of GeographySan Diego State Universityhttp://geography.sdsu.edu/People/Faculty/rey.html
 "comment and uncomment selected blocks
 map ,# :s/^/#/<CR>
 map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
@@ -425,12 +412,6 @@ set sessionoptions=buffers,winsize,options,help,blank,resize
 
 
 "
-set spell
-
-map ;soff <Esc>:setlocal nospell<CR>
-map ;son <Esc>:setlocal spell spelllang=en_us<CR>
-
-
 
 
 " vim:set et sts=2 sw=2:
