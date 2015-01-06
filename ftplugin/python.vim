@@ -400,7 +400,6 @@ if has("gui_running")
     set background=light
     "set guifont=DejaVu_Sans_Mono:h14.00
  "   set guifont=Menlo_Regular:h13.00
-    set guifont=Courier:h13
 else
     hi Comment ctermfg=cyan ctermbg=black
     highlight StatusLineNC ctermfg=black ctermbg=darkcyan
