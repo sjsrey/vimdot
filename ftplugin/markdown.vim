@@ -43,7 +43,7 @@ else
     hi Comment ctermfg=cyan ctermbg=black
     highlight StatusLineNC ctermfg=black ctermbg=darkcyan
     highlight StatusLine ctermfg=darkcyan  ctermbg=black
-    set background=light
+    set background=dark
 endif
 
 set sessionoptions=buffers,winsize,options,help,blank,resize

@@ -395,7 +395,7 @@ let g:miniBufExplModSelTarget = 1
 syntax enable
 if has("gui_running")
     "colorscheme pyte
-    colorscheme solarized
+    colorscheme summerfruit256
     syntax on
     set background=light
     "set guifont=DejaVu_Sans_Mono:h14.00
