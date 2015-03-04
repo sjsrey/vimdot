@@ -1,0 +1,191 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass{article}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.3 (9/9/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+%\documentclass[twoside]{article}
+%\documentclass{article}
+
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\usepackage[round]{natbib}
+
+\usepackage{titlesec} % Allows customization of titles
+%\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+%\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{<+header here$\bullet$ March 2015 $\bullet$ \emph{GeoDa Center Working Paper} +>} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{<+title here+>}} % Article title
+
+\author{
+\large
+\textsc{Sergio J. Rey}\thanks{This research was supported in part by National
+Science Foundation Grant SES-1421935.}\\[2mm] % Your name
+\normalsize GeoDa Center for Geospatial Analysis and Computation\\%
+\normalsize School of Geographical Sciences and Urban Planning\\%
+\normalsize Arizona State University \\ % Your institution
+\normalsize \href{mailto:srey@asu.edu}{srey@asu.edu} % Your email address
+\vspace{-5mm}
+}
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Insert title
+
+\thispagestyle{fancy} % All pages have headers and footers
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+
+\noindent 
+<+abstract+>
+\begin{compactitem}
+\item State the purpose very clearly in the first or second sentence
+\item Clearly explain basic design of the study and key techniques
+\item Report major findings
+\item Implications
+\end{compactitem}
+
+
+
+
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+%For elements of each section of the paper see http://abacus.bates.edu/~ganderso/biology/resources/writing/HTWsections.html
+
+%\begin{multicols}{2} % Two-column layout throughout the main article text
+
+\section{Introduction}
+
+\lettrine[nindent=0em,lines=3]{K} iller introduction paragraph to get the
+reader hooked. What is the broader substantive problem that will form the
+context for the current paper. This is just placeholder text to see how the
+letter looks as we set the first paragraph.
+
+The introduction should cover the following
+\begin{compactitem}
+\item Establish the context of the work being reported. Discuss relevant
+  primary research literature with citations.
+\item State the purpose of the work in the form of the hypothesis, question
+  or problem investigated
+  What is the hook for this paper in terms of moving the literature forward.
+\item Bravely explain the rationale and approach and the possible outcomes.
+\item How is the rest of the paper organized
+\end{compactitem}
+
+
+%------------------------------------------------
+
+\section{<+Methods+>}
+
+%------------------------------------------------
+
+\section{<+Results+>}
+
+\begin{table}[H]
+\caption{Example table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\lipsum[5] % Dummy text
+
+\begin{equation}
+\label{eq:emc}
+e = mc^2
+\end{equation}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\section{<+Discussion+>}
+
+%------------------------------------------------
+\section{<+Conclusion+>}
+
+
+% note for co-authored paper have a local bib and pull from master. If new
+% papers are added by co-author push them to the master bib
+
+\bibliography{../../../b/bib/libraryjf}
+\bibliographystyle{apalike}
+
+
+%\end{multicols}
+
+\end{document}
