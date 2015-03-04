@@ -65,3 +65,7 @@ filetype plugin indent on
 set scrolloff=2
 
 set background=dark
+
+"cron weirdness on yosemite
+" http://vim.wikia.com/wiki/Editing_crontab
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
