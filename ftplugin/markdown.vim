@@ -32,20 +32,6 @@ au BufEnter *.md setlocal foldmethod=expr
 
 "color stuff
 syntax enable
-if has("gui_running")
-    "colorscheme pyte
-    colorscheme solarized
-    syntax on
-    set background=light
-    "set guifont=DejaVu_Sans_Mono:h14.00
- "   set guifont=Menlo_Regular:h13.00
-else
-    hi Comment ctermfg=cyan ctermbg=black
-    highlight StatusLineNC ctermfg=black ctermbg=darkcyan
-    highlight StatusLine ctermfg=darkcyan  ctermbg=black
-    set background=dark
-endif
-
 set sessionoptions=buffers,winsize,options,help,blank,resize
 
 
