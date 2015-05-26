@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/serge/Dropbox/giscience_chapter/rey_athg.tex'
 let g:netrw_dirhist_2='/Users/serge/Dropbox/GPH471/F13/github/shared471f13/project'
 let g:netrw_dirhist_3='/Users/serge/Dropbox/ESBS/modelingInHumanGeography.tex'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/Users/serge/.vim'
 let g:netrw_dirhist_5='/home/serge/.vim/ftplugin'
 let g:netrw_dirhist_6='/home/serge/.vim'
 let g:netrw_dirhist_7='/home/serge/.vim/ftdetect'
+let g:netrw_dirhist_8='/home/serge/.config'
