@@ -12,7 +12,7 @@ map ;P :!pdflatex %
 
 " read pdf
 "map ;A :!open -a texniscope %<.pdf
-map ;v :!see %<.pdf &
+map ;v :!open -a skim.app %<.pdf 
 
 map ;l :!pdflatex %
 

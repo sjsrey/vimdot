@@ -1,6 +1,5 @@
 " Configuration file for vim
 
-
 " Normally we use vim-extensions. If you want true vi-compatibility
 " remove change the following statements
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
@@ -69,3 +68,38 @@ set background=dark
 "cron weirdness on yosemite
 " http://vim.wikia.com/wiki/Editing_crontab
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+
+
+" powerline
+"
+
+
+"set rtp+=/Users/raguay/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+set rtp+=/Users/serge/.local/lib/python2.7/site-packages/powerline/bindings/vim
+ 
+" These lines setup the environment to show graphics and colors correctly.
+set nocompatible
+set t_Co=256
+ 
+let g:minBufExplForceSyntaxEnable = 1
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+ 
+if ! has('gui_running')
+   set ttimeoutlen=10
+   augroup FastEscape
+      autocmd!
+      au InsertEnter * set timeoutlen=0
+      au InsertLeave * set timeoutlen=1000
+   augroup END
+endif
+ 
+set laststatus=2 " Always display the statusline in all windows
+set guifont=Inconsolata\ for\ Powerline:h14
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+" added by sjr
+let g:Powerline_symbols = 'fancy'
+set fillchars+=stl:\ ,stlnc:\
+
