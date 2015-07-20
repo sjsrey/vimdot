@@ -101,12 +101,14 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
 
-"et laststatus=2
+"set laststatus=2
 "set term=xterm-256color
 set termencoding=utf-8
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 "set guifont=Ubuntu\ Mono
  let g:Powerline_symbols = 'fancy'
+
+" note fonts have to be installed from https://github.com/powerline/fonts
 
 colo desert
 syntax on
