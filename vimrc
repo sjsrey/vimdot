@@ -95,6 +95,7 @@ python del powerline_setup
  
 set laststatus=2 " Always display the statusline in all windows
 "set guifont=Inconsolata\ for\ Powerline:h14
+"
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " added by sjr
