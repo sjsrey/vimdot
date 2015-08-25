@@ -44,9 +44,10 @@ syntax on
 syntax spell toplevel
 
 "tab
-"set smartindent
-"set tabstop=4
-"set shiftwidth=4
+set smartindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
 set scrolloff=2
 
 
@@ -100,5 +101,16 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 " added by sjr
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
+
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
