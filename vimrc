@@ -74,7 +74,7 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 "powerline
 
 "set rtp+=/Users/raguay/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
-set rtp+=/Users/serge/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set rtp+=/home/serge/.local/lib/python2.7/site-packages/powerline/bindings/vim
  
 " These lines setup the environment to show graphics and colors correctly.
 "set nocompatible
