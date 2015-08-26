@@ -95,7 +95,7 @@ python del powerline_setup
 "endif
  
 set laststatus=2 " Always display the statusline in all windows
-set guifont=Inconsolata\ for\ Powerline:h14
+"set guifont=Inconsolata\ for\ Powerline:h14
 "
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
@@ -106,9 +106,9 @@ set fillchars+=stl:\ ,stlnc:\
 "set laststatus=2
 "set term=xterm-256color
 set termencoding=utf-8
-"set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 "set guifont=Ubuntu\ Mono
- let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 
 " syntastic
 set statusline+=%#warningmsg#
