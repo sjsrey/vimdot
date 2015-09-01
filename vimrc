@@ -44,10 +44,9 @@ syntax on
 syntax spell toplevel
 
 "tab
-set smartindent
-set expandtab
-set tabstop=4
-set shiftwidth=4
+"set smartindent
+"set tabstop=4
+"set shiftwidth=4
 set scrolloff=2
 
 
@@ -95,32 +94,11 @@ python del powerline_setup
 "endif
  
 set laststatus=2 " Always display the statusline in all windows
-"set guifont=Inconsolata\ for\ Powerline:h14
-"
+set guifont=Inconsolata\ for\ Powerline:h14
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " added by sjr
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
 
-"set laststatus=2
-"set term=xterm-256color
-set termencoding=utf-8
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
-"set guifont=Ubuntu\ Mono
- let g:Powerline_symbols = 'fancy'
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-
-" note fonts have to be installed from https://github.com/powerline/fonts
-
-syntax on
