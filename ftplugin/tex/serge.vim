@@ -12,7 +12,7 @@ map ;P :!pdflatex %
 
 " read pdf
 "map ;v :!open -a skim.app %<.pdf 
-map ;v :!see  %<.pdf&
+map ;v :!evince  %<.pdf&
 
 map ;l :!pdflatex %
 
