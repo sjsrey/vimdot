@@ -92,7 +92,7 @@ python del powerline_setup
 "      au InsertLeave * set timeoutlen=1000
 "   augroup END
 "endif
- 
+" http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
 set laststatus=2 " Always display the statusline in all windows
 set guifont=Inconsolata\ for\ Powerline:h14
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
