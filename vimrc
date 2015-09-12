@@ -1,35 +1,4 @@
-" Configuration file for vim
-
-" Normally we use vim-extensions. If you want true vi-compatibility
-" remove change the following statements
-set nocompatible	" Use Vim defaults instead of 100% vi compatibility
-set backspace=2		" more powerful backspacing
-set autoindent
-"set nobackup
-set ruler
-set exrc
-"set cuc
-set dir=~/tmp
-"syntax enable
-
-"paste for the terminal
-set pastetoggle=<F2>
-
-" other
-filetype plugin on
-set vb
-
-"Mappings
-imap ;; :
-imap jj <Esc>
-imap ii <Esc>
-imap ;w <Esc>:w
-imap ;q <Esc>:wq
-imap ;ps PySAL
-imap ;v :tabe ~/.vimrc
-
-
-let g:tex_flavor='latex'
+vor='latex'
 let g:tex_comment_nospell=0
 
 set tw=78
@@ -100,5 +69,6 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 " added by sjr
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
+
 
 
