@@ -1,3 +1,4 @@
+
 " Configuration file for vim
 
 " Normally we use vim-extensions. If you want true vi-compatibility
@@ -44,9 +45,10 @@ syntax on
 syntax spell toplevel
 
 "tab
-"set smartindent
-"set tabstop=4
-"set shiftwidth=4
+set smartindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
 set scrolloff=2
 
 
@@ -73,7 +75,7 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 "powerline
 
 "set rtp+=/Users/raguay/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
-set rtp+=/Users/serge/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set rtp+=/home/serge/.local/lib/python2.7/site-packages/powerline/bindings/vim
  
 " These lines setup the environment to show graphics and colors correctly.
 "set nocompatible
@@ -95,11 +97,11 @@ python del powerline_setup
  
 set laststatus=2 " Always display the statusline in all windows
 "set guifont=Inconsolata\ for\ Powerline:h14
+
 set guifont=Meslo\ LG\ S\ for\ Powerline\ 10
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " added by sjr
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
-
 
