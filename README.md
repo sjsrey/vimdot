@@ -1,5 +1,5 @@
 
-**NOTE: I no longer use this to manage my Vim files. For the new system see [https://github.com/sjsrey/vimfiles] **
+**NOTE:** I no longer use this to manage my Vim files. For the new system see https://github.com/sjsrey/vimfiles
 
 
 Installation:
