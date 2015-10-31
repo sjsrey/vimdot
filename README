@@ -1,3 +1,7 @@
+
+**NOTE: I no longer use this to manage my Vim files. For the new system see [https://github.com/sjsrey/vimfiles] **
+
+
 Installation:
 
     git clone git://github.com/sjsrey/vimdot.git ~/.vim
